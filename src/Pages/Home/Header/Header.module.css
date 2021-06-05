@@ -1,0 +1,12 @@
+.header{
+
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-position: center 68%;
+    background-image: linear-gradient(to right bottom, #31d17983, #40d0776c, #4cd07652, #5fce7188),
+    url('../../../assets/piyush-dubey-XNf4uAnkdn0-unsplash.jpg');
+}

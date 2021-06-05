@@ -1,0 +1,16 @@
+.collection{
+    color:black;
+
+    font-weight: bold;
+    padding:10px;
+    border-radius: 10px;
+}
+.collection li{
+    border-bottom: 2px solid black;
+    padding:5px;
+    border-radius: 6px;
+}
+.collection nav ul  li:hover{
+    background: black;
+    color:white;
+}
