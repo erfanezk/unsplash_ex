@@ -3,31 +3,29 @@ import { Link, NavLink } from "react-router-dom";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import anime from "animejs";
 import "./Toolbar.css";
+import useModal from 'react-partial-modal'
+import Customize from "../Customize/Customize";
 const Toolbar = (props) => {
   const [headerStyle, setHeaderStyle] = useState({
     transition: "all 200ms ease-in",
   });
-  const [bg,setBg] = useState('bg-white');
-  const navItem1 = useRef();
-  const navItem2 = useRef();
-  const mobileNav= useRef();
+  const [Modal,open,close] = useModal('root');
+  const [bg, setBg] = useState("bg-white");
+  const navItems = useRef();
+  const mobileNav = useRef();
   useEffect(() => {
-
-
-      anime({
-        targets: [navItem1.current, navItem2.current],
-        translateX: [200, 0],
-        delay: 1000,
-        duration: 600,
-      });
-      anime({
-        targets:mobileNav.current,
-        translateY: [-200, 0],
-        delay: 1000,
-        duration: 1000,
-      });
-
-    
+    anime({
+      targets: navItems.current,
+      translateX: [400, 0],
+      delay: 1000,
+      duration: 600,
+    });
+    anime({
+      targets: mobileNav.current,
+      translateY: [-200, 0],
+      delay: 1000,
+      duration: 1000,
+    });
   }, []);
 
   useScrollPosition(
@@ -39,22 +37,28 @@ const Toolbar = (props) => {
         color: isVisible ? "#282133" : "white",
         boxShadow: isVisible ? "1px 1px 8px #282133" : "",
       };
-     setBg(isVisible ?'bg-black' : 'bg-white');
+      setBg(isVisible ? "bg-black" : "bg-white");
       setHeaderStyle(shouldBeStyle);
     },
     [headerStyle]
   );
   return (
     <header style={headerStyle} className="Toolbar">
+      <Modal>
+        <Customize close={close}/>
+      </Modal>
       <nav className="Toolbar_Navigation">
-        <div ref={mobileNav} className='mobile'>
+        <div ref={mobileNav} className="mobile">
           <div className="Toolbar_Logo">
             <Link to="/">
               <span className="text-base ">Erfanezk</span>
             </Link>
           </div>
-          <div className='togglerContainer'>
-            <button onClick={props.toggler} className="w-6   focus:outline-none flex flex-col">
+          <div className="togglerContainer">
+            <button
+              onClick={props.toggler}
+              className="w-6   focus:outline-none flex flex-col"
+            >
               <span className={`toggler togglerFirstChild ${bg}`}></span>
               <span className={`toggler ${bg}`}></span>
               <span className={`toggler togglerLastChild ${bg}`}></span>
@@ -63,14 +67,17 @@ const Toolbar = (props) => {
         </div>
         <div className="spacer"></div>
         <div className="Toolbar_Navigation_Item">
-          <ul>
-            <li ref={navItem1}>
+          <ul ref={navItems}>
+            <li>
               <NavLink to="/" active="active">
                 Home
               </NavLink>
             </li>
-            <li ref={navItem2}>
+            <li>
               <NavLink to="/users">Users</NavLink>
+            </li>
+            <li onClick={open}>
+              <span className="customize">Customize</span>
             </li>
           </ul>
         </div>

@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-syntax-jsx": "^7.12.13",
+    "@babel/preset-env": "^7.14.4",
     "@craco/craco": "^6.1.2",
     "@n8tb1t/use-scroll-position": "^2.0.3",
     "@testing-library/jest-dom": "^5.13.0",
@@ -11,9 +13,11 @@
     "anime": "^0.1.2",
     "animejs": "^3.2.1",
     "axios": "^0.21.1",
+    "disable-scroll": "^0.6.0",
     "js": "^0.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-partial-modal": "^1.1.8",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
@@ -46,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.13.13",
     "autoprefixer": "^9.8.6",
     "postcss": "^7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.4"

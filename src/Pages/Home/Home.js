@@ -37,7 +37,7 @@ const Home = (props) => {
     return (
         <div >
             <Header SideDrawerToggler={drawerToggleClickHandler}/>
-            <SideDrawer show={SideDrawerOpen} />
+            <SideDrawer closeSideDraw={()=>setSideDrawerOpen(false)} show={SideDrawerOpen} />
             <main className="mx-2 md:mx-10 xl:mx-10 my-4">
             <Collections/>
             <ImageList images={props.UnsplashReducer} />

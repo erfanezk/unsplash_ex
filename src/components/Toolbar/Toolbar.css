@@ -36,6 +36,7 @@ padding: 0.5rem 1rem;
 }
 .Toolbar_Navigation_Item li{
     padding: 0 0.5rem;
+    margin-right:1rem;
    
 }
 .Toolbar_Navigation_Item a{
@@ -86,4 +87,17 @@ padding: 0.5rem 1rem;
 }
 .togglerLastChild{
     width:75%;
+}
+.customize{
+    color: inherit;
+    text-transform: capitalize;
+    text-decoration: none;
+    cursor: pointer;
+    padding:9px;
+    border-radius: 10px;
+}
+
+.customize:hover{
+    color:var(--background) !important ;
+    border-bottom: 3px solid var(--background);
 }
