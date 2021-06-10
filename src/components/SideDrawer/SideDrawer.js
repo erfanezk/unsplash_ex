@@ -67,7 +67,7 @@ const SideDrawer = (props) => {
           <NavLink to="/users">Users</NavLink>
         </li>
         <li onClick={open}>
-        <i class="far ml-3 mr-2 fa-edit"></i>
+        <i className="far ml-3 mr-2 fa-edit"></i>
           Customize
         </li>
       </ul>

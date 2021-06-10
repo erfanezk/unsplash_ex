@@ -16,3 +16,9 @@ export const changeHomeImage=(src)=>{
         payload:src
     }
 }
+export const addImage=src=>{
+    return {
+        type:actionsType.ADD_IMAGE,
+        payload:src
+    }
+}
