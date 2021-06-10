@@ -23,12 +23,12 @@ const Customize = (props) => {
       <article>
         <div>
           <header className="flex bg-green py-3 my-1">
-            <div style={{ flexBasis: "200px" }}></div>
+            <div style={{ flexBasis: "150px" }}></div>
             <div className="flex-1">Customize this page
                 </div>
           </header>
           <div className="flex mt-3 overflow-hidden">
-            <div style={{ flexBasis: "200px" }} className="">
+            <div style={{ flexBasis: "150px" }} className="">
               <ul className="flex flex-col  ">
                 <li className="capitalize cursor-pointer mb-3"><i className="fas mr-3 fa-image"></i>background</li>
                 <li className="capitalize cursor-pointer mb-3"><i className="fas mr-3 fa-location-arrow"></i>shortcutes</li>

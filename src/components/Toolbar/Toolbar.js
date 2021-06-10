@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import anime from "animejs";
 import "./Toolbar.css";
-import useModal from 'react-partial-modal'
+import useModal from '../../HOC/useModal'
 import Customize from "../Customize/Customize";
 const Toolbar = (props) => {
   const [headerStyle, setHeaderStyle] = useState({
