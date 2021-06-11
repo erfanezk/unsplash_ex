@@ -1,17 +1,12 @@
 import * as actionsType from "../Actions/actionsType";
-import image from "../../assets/piyush-dubey-XNf4uAnkdn0-unsplash.jpg";
-import disert from "../../assets/marek-piwnicki-zZTwuBz74iI-unsplash.jpg";
-import ger from "../../assets/jeremy-zero-rLVY6LLqalQ-unsplash.jpg";
-import ember from "../../assets/eberhard-grossgasteiger-fcrSsepzDzg-unsplash.jpg";
-import bozi from "../../assets/bozidar-vukadinovic-sNWMhlgfR3g-unsplash.jpg";
-import zdek from "../../assets/zdenek-machacek-OlKkCmToXEs-unsplash.jpg";
-import damn from "../../assets/damien-schnorhk-fVBWN3_ST0E-unsplash.jpg";
-import james from "../../assets/james-donovan-kFHz9Xh3PPU-unsplash.jpg";
-import sepn from "../../assets/spencer-bergen-bmqyS0HXV70-unsplash.jpg";
+import image from "../../assets/alex-glebov-uiTEV1jvlGc-unsplash.jpg";
+import mount from "../../assets/jan-valecka-SRJkK4rtZvs-unsplash.jpg";
+import d from "../../assets/sayan-nath-NYIQPdMWN84-unsplash.jpg";
+import v from "../../assets/karsten-winegeart-QtDaxPzhfAk-unsplash.jpg"
 import _  from 'lodash';
 const setedImage = localStorage.getItem("HomeTheme");
 const initialState = {
-  images: [disert, ger, ember, bozi, zdek,damn,james,sepn],
+  images: [mount,d,v],
   backgrundImage: setedImage || image,
 };
 const UiReducer = (state = initialState, action) => {

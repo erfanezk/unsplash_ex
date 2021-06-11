@@ -3,7 +3,7 @@ import Title from '../Title/Title'
 import Toolbar from '../../../components/Toolbar/Toolbar'
 import classes from './Header.module.css'
 import { connect } from 'react-redux';
-import image from '../../../assets/piyush-dubey-XNf4uAnkdn0-unsplash.jpg'
+import image from '../../../assets/alex-glebov-uiTEV1jvlGc-unsplash.jpg'
 const Header = (props) => {
    const img = props.backgroundImage ? props.backgroundImage : image
    const style={

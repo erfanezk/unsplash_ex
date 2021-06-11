@@ -1,18 +1,37 @@
 import React from "react";
 import classes from "./Modal.module.css";
 import { connect } from "react-redux";
-const Modal = (props) => {
-  document.body.classList.add("modalOpen");
 
+function imageOrientation(src) {
+  var orientation,
+    img = new Image();
+  img.src = src;
+
+  if (img.naturalWidth > img.naturalHeight) {
+    orientation = "landscape";
+  } else if (img.naturalWidth < img.naturalHeight) {
+    orientation = "portrait";
+  } else {
+    orientation = "even";
+  }
+
+  return orientation;
+}
+const Modal = (props) => {
+ 
+  const typeOfImage = imageOrientation(props.item.urls.regular);
   return (
     <div
-    className={`left-0 lg:w-3/4  lg:left-1/2 transform lg:mt-6 lg:-translate-x-1/2 top-0 fixed z-50 w-full  bg-white`}
-  >
+      className={`left-0 ${typeOfImage==='landscape' ?'lg:w-auto':'lg:w-3/4'} overflow-x-hidden  lg:left-1/2 transform lg:mt-6 lg:-translate-x-1/2 top-0 fixed z-50 w-full   bg-white`}
+    >
       <div className={classes.modalBody}>
-        <header className={`px-5 lg:px-10 pt-4 pb-0 sticky ${classes.header}  top-0`}>
+        <header
+          className={`px-5 lg:px-10 pt-4 pb-0 sticky ${classes.header}  top-0`}
+        >
           <div className="flex justify-between items-center">
-            <div>
-              <div>{props.item.user.name}</div>
+            <div className="flex items-end">
+              <div><img src={props.item.user.profile_image.small} alt="profile"/></div>
+              <div className="ml-3">{props.item.user.name}</div>
             </div>
             <div className="text-lg">
               <i
@@ -29,10 +48,10 @@ const Modal = (props) => {
             @{props.item.user.instagram_username}
           </div>
         </header>
-        <div className={`${classes.imgC} `}>
+        <div className={`${classes.imgC} w-full `}>
           <img
             src={props.item.urls.regular}
-            className={classes.img}
+            className={`${classes.img} ${typeOfImage==='landscape' ? '':'w-64'}`}
             alt={props.item.alt_description}
           />
         </div>
@@ -56,6 +75,6 @@ const Modal = (props) => {
 const mapStateToProps = (state, props) => {
   return {
     item: state.UnsplashReducer.Unsplash[props.id],
-  }
-}
-export default connect(mapStateToProps,null)(Modal);
+  };
+};
+export default connect(mapStateToProps, null)(Modal);

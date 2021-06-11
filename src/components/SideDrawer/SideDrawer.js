@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./SideDrawer.css";
-import profilepic from "../../assets/pic.png";
+// import profilepic from "../../assets/pic.png";
 import { NavLink } from "react-router-dom";
 import anime from "animejs";
 import useModal from "../../HOC/useModal"
@@ -47,7 +47,7 @@ const SideDrawer = (props) => {
         <Customize close={close}/>
       </Modal>
       <div ref={img} className="pic">
-        <img src={profilepic} alt="/" />
+        {/* <img src={profilepic} alt="/" /> */}
         <p>profile name</p>
       </div>
       <ul ref={items} onClick={(e)=>{
