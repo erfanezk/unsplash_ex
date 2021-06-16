@@ -10,10 +10,12 @@
   column-gap: 20px;
 }
 .Images-List img {
-  margin-bottom: 20px ;
+ transition: all 0.5s;
   width: 100%;
   cursor: pointer;
   border-radius: 10px;
+  border-bottom-left-radius: 0%;
+  border-bottom-right-radius: 0%;
   box-shadow: 1px 2px 5px var(--background);
 
 }

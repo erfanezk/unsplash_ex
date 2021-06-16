@@ -22,9 +22,9 @@ const Modal = (props) => {
   const typeOfImage = imageOrientation(props.item.urls.regular);
   return (
     <div
-      className={`left-0 ${typeOfImage==='landscape' ?'lg:w-auto':'lg:w-3/4'} overflow-x-hidden  lg:left-1/2 transform lg:mt-6 lg:-translate-x-1/2 top-0 fixed z-50 w-full   bg-white`}
+      className={`left-0 ${typeOfImage==='landscape' ?'lg:w-auto':'lg:w-3/4'} ${classes.modalBody} overflow-x-hidden  lg:left-1/2 transform lg:mt-6 lg:-translate-x-1/2 top-0 fixed z-50 w-full    bg-white`}
     >
-      <div className={classes.modalBody}>
+      <div >
         <header
           className={`px-5 lg:px-10 pt-4 pb-0 sticky ${classes.header}  top-0`}
         >
@@ -51,7 +51,7 @@ const Modal = (props) => {
         <div className={`${classes.imgC} w-full `}>
           <img
             src={props.item.urls.regular}
-            className={`${classes.img} ${typeOfImage==='landscape' ? '':'w-64'}`}
+            className={`${classes.img} ${typeOfImage==='landscape' ? '':'w-96 mx-auto'}`}
             alt={props.item.alt_description}
           />
         </div>

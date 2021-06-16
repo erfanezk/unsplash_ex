@@ -18,6 +18,7 @@ const Customize = (props) => {
       props.addImage(image);
       setImage(null);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [image])
 
   return (
