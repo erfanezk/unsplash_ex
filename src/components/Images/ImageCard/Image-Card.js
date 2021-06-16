@@ -36,7 +36,7 @@ class ImageCard extends React.Component {
   }
 
   render() {
-    console.log(this.props.img);
+ 
     return (
       <div className={classes.imageCardContainer}>
         <img
