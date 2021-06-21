@@ -5,6 +5,7 @@ left: 0;
 width: 100%;
 background:transparent;
 padding:6px 10px;
+z-index: 100;
 color:white;
 }
 
