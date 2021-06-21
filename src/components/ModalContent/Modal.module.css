@@ -17,6 +17,8 @@
 }
 .imgC{
     box-shadow: none;
+    width:100%;
+    overflow:hidden;
 }
 .insta{
     color:rgb(90, 118, 179);
@@ -31,7 +33,8 @@
     font-size:0.8rem;
 }
 .modalBody {
-    max-height: calc(100vh - 20px);
+    /* max-height: calc(100vh - 20px); */
+    max-height: 100vh;
     overflow-y: auto;
 }
 .header{

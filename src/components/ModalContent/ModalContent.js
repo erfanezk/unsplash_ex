@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Modal.module.css";
 import { connect } from "react-redux";
-
+import DateDiff from "date-diff";
 function imageOrientation(src) {
   var orientation,
     img = new Image();
@@ -18,11 +18,21 @@ function imageOrientation(src) {
   return orientation;
 }
 const Modal = (props) => {
- 
+  const diffDate = new DateDiff(new Date(), new Date(props.item.created_at));
+  let stateOfDate = "a moment ago";
+  if (diffDate.years() >= 1) {
+    stateOfDate = "more than 1 year ago";
+  } else if (diffDate.months() > 0) {
+    stateOfDate = `${diffDate.months()} months ago`;
+  } else if (diffDate.days() > 0) {
+    stateOfDate = `${diffDate.months()} days ago`;
+  }
   const typeOfImage = imageOrientation(props.item.urls.regular);
   return (
     <div
-      className={`left-0 ${typeOfImage==='landscape' ?'lg:w-auto':'lg:w-3/4'} overflow-x-hidden  lg:left-1/2 transform lg:mt-6 lg:-translate-x-1/2 top-0 fixed z-50 w-full   bg-white`}
+      className={`left-0 ${
+        typeOfImage === "landscape" ? "lg:w-auto" : "lg:w-3/4"
+      } lg:top-1/2 overflow-x-hidden lg:-translate-y-1/2    lg:left-1/2 transform lg:mt-6 lg:-translate-x-1/2 top-0 fixed z-50 w-full   bg-white`}
     >
       <div className={classes.modalBody}>
         <header
@@ -30,7 +40,9 @@ const Modal = (props) => {
         >
           <div className="flex justify-between items-center">
             <div className="flex items-end">
-              <div><img src={props.item.user.profile_image.small} alt="profile"/></div>
+              <div>
+                <img src={props.item.user.profile_image.small} alt="profile" />
+              </div>
               <div className="ml-3">{props.item.user.name}</div>
             </div>
             <div className="text-lg">
@@ -48,10 +60,12 @@ const Modal = (props) => {
             @{props.item.user.instagram_username}
           </div>
         </header>
-        <div className={`${classes.imgC} w-full `}>
+        <div className={`${classes.imgC}`}>
           <img
             src={props.item.urls.regular}
-            className={`${classes.img} ${typeOfImage==='landscape' ? '':'w-64'}`}
+            className={`${classes.img} ${
+              typeOfImage === "landscape" ? "" : "w-64"
+            }`}
             alt={props.item.alt_description}
           />
         </div>
@@ -64,7 +78,7 @@ const Modal = (props) => {
             {props.item.user.updated_at}
             <div>
               <span className="capitalize text-sm mr-2">published on</span>
-              {props.item.created_at}
+              {stateOfDate}
             </div>
           </div>
         </div>

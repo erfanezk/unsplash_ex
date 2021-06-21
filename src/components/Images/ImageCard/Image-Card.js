@@ -33,9 +33,9 @@ class ImageCard extends React.Component {
   }
 
   render() {
-
-    console.log(this.props.img);
     return (
+      <div className="imgWithHover">
+
         <img
            onClick={this.props.click}
           data-id={this.props.index}
@@ -44,6 +44,7 @@ class ImageCard extends React.Component {
           alt={this.props.img.description}
           src={this.props.img.urls.regular}
         />
+      </div>
     );
   }
 }
