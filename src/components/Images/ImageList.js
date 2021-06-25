@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ImageList.css";
 import ImageCard from "./ImageCard/Image-Card";
 import useModal from "../../HOC/useModal";
-import ModalContent from "../ModalContent/ModalContent";
+import ModalContent from "../Modals/simpleModal/ModalContent";
 
 const ImageList = (props) => {
   const [Modal, open, close] = useModal("root", {

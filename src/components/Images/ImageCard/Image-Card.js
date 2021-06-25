@@ -34,22 +34,35 @@ class ImageCard extends React.Component {
   componentWillUnmount() {
     this.state.observer.unobserve(this.imageRef.current);
   }
-
+  animateImg = () => {
+    this.imageRef.current.classList.add(classes.move);
+  };
   render() {
- 
     return (
       <div className={classes.imageCardContainer}>
         <img
-          onClick={this.props.click}
+          onClick={() => {
+            this.props.click();
+          }}
           data-id={this.props.index}
-          className="lazyload"
+          className={`lazyload`}
           ref={this.imageRef}
           alt={this.props.img.description}
           src={this.props.img.urls.regular}
         />
         <div className={classes.dec}>
-          <div className="mt-5 text-xs">created by <span className="text-lg font-bold">{this.props.img.user.name}</span> </div>
-          <div className=" text-xs">located in <span className="text-lg font-bold">{this.props.img.user.location}</span>  </div>
+          <div className="mt-5 text-xs">
+            created by{" "}
+            <span className="text-lg font-bold">
+              {this.props.img.user.name}
+            </span>{" "}
+          </div>
+          <div className=" text-xs">
+            located in{" "}
+            <span className="text-lg font-bold">
+              {this.props.img.user.location}
+            </span>{" "}
+          </div>
         </div>
       </div>
     );
