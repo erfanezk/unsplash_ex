@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./Modal.module.css";
 import { connect } from "react-redux";
 import DateDiff from "date-diff";
+import { Link } from "react-router-dom";
 function imageOrientation(src) {
   var orientation,
     img = new Image();
@@ -44,7 +45,7 @@ const Modal = (props) => {
       Math.floor(publishedDiff.years()) > 1 ? "s" : ""
     } ago`;
   else if (publishedDiff.months() >= 1)
-    stateOfPublished = `${Math.floor(publishedDiff.months()) } month${
+    stateOfPublished = `${Math.floor(publishedDiff.months())} month${
       publishedDiff.months() > 1 ? "s" : ""
     } ago`;
 
@@ -62,12 +63,25 @@ const Modal = (props) => {
           className={`px-5 lg:px-10 pt-4 pb-0 sticky ${classes.header}  top-0`}
         >
           <div className="flex justify-between items-center">
-            <div className="flex items-end">
+            <Link
+              to={{
+                pathname: `/user-profile/${props.item.user.username}`,
+                state: {
+                  username: props.item.user.username,
+                  bio: props.item.user.bio,
+                  location: props.item.user.location,
+                  photos: props.item.user.total_photos,
+                  likes: props.item.user.total_likes,
+                  profile_image: props.item.user.profile_image.large,
+                },
+              }}
+              className="flex items-end"
+            >
               <div>
                 <img src={props.item.user.profile_image.small} alt="profile" />
               </div>
               <div className="ml-3">{props.item.user.name}</div>
-            </div>
+            </Link>
             <div className="text-lg">
               <i
                 onClick={() => {
@@ -110,8 +124,12 @@ const Modal = (props) => {
   );
 };
 const mapStateToProps = (state, props) => {
+  let item;
+  if (props.indv) item = state.UnsplashReducer.individualPhotos[props.id];
+  else if (props.liked) item = state.UnsplashReducer.liked[props.id];
+  else item = state.UnsplashReducer.Unsplash[props.id];
   return {
-    item: state.UnsplashReducer.Unsplash[props.id],
+    item:item
   };
 };
 export default connect(mapStateToProps, null)(Modal);

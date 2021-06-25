@@ -1,0 +1,20 @@
+.dec{
+    overflow-wrap: break-word;
+
+}
+.active{
+    border-bottom: 2px solid black;
+}
+.active i{
+    color:black !important;
+}
+.hr{
+    border-bottom: 1px solid rgb(216, 216, 216);
+}
+.hr nav ul li i{
+    color:rgb(179, 179, 179);
+    transition:all 0.2s;
+}
+.hr nav ul li:hover i{
+    color:black;
+}

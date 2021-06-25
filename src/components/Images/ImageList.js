@@ -21,7 +21,7 @@ const ImageList = (props) => {
   };
   const modal = selectedImage ? (
     <Modal>
-      <ModalContent id={selectedImage} close={close} />
+      <ModalContent liked={props.liked} indv={props.indv} id={selectedImage} close={close} />
     </Modal>
   ) : null;
 
