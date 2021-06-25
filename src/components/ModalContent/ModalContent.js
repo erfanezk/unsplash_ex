@@ -97,7 +97,7 @@ const Modal = (props) => {
             @{props.item.user.instagram_username}
           </div>
         </header>
-        <div className={`${classes.imgC} w-full `}>
+        <div className={`${classes.imgC}`}>
           <img
             src={props.item.urls.regular}
             className={`${classes.img} ${
