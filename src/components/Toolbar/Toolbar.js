@@ -10,7 +10,6 @@ const Toolbar = (props) => {
     transition: "all 200ms ease-in",
   });
   const [Modal,open,close] = useModal('root');
-  const [bg, setBg] = useState("bg-white");
   const navItems = useRef();
   const mobileNav = useRef();
   useEffect(() => {
@@ -30,14 +29,13 @@ const Toolbar = (props) => {
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      const isVisible = currPos.y < -450;
+      const isVisible = currPos.y < -350;
       const shouldBeStyle = {
         transition: `all 200ms ${isVisible ? "ease-in" : "ease-out"}`,
         backgroundColor: isVisible ? "white" : "transparent",
-        color: isVisible ? "#282133" : "white",
+        color: isVisible ? "#282133" : "black",
         boxShadow: isVisible ? "1px 1px 8px #282133" : "",
       };
-      setBg(isVisible ? "bg-black" : "bg-white");
       setHeaderStyle(shouldBeStyle);
     },
     [headerStyle]
@@ -59,9 +57,9 @@ const Toolbar = (props) => {
               onClick={props.toggler}
               className="w-6   focus:outline-none flex flex-col"
             >
-              <span className={`toggler togglerFirstChild ${bg}`}></span>
-              <span className={`toggler ${bg}`}></span>
-              <span className={`toggler togglerLastChild ${bg}`}></span>
+              <span className={`toggler togglerFirstChild bg-black`}></span>
+              <span className={`toggler bg-black`}></span>
+              <span className={`toggler togglerLastChild bg-black`}></span>
             </button>
           </div>
         </div>

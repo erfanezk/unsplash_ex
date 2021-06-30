@@ -3,7 +3,7 @@ import "./ImageList.css";
 import ImageCard from "./ImageCard/Image-Card";
 import useModal from "../../HOC/useModal";
 import ModalContent from "../Modals/simpleModal/ModalContent";
-
+import Spinner from "../UI/Spinner";
 const ImageList = (props) => {
   const [Modal, open, close] = useModal("root", {
     preventScroll: false,
@@ -21,13 +21,23 @@ const ImageList = (props) => {
   };
   const modal = selectedImage ? (
     <Modal>
-      <ModalContent id={selectedImage} close={close} />
+      <ModalContent
+        liked={props.liked}
+        indv={props.indv}
+        id={selectedImage}
+        close={close}
+      />
     </Modal>
   ) : null;
 
+  let show = images;
+
+  if (!props.images) 
+    show = <div className="flex justify-center"><Spinner /></div> ;
+
   return (
     <div onClick={selectImage} className="Images-List">
-      {images}
+      {show}
       {modal}
     </div>
   );
