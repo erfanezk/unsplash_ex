@@ -7,7 +7,7 @@ import image from '../../../assets/alex-glebov-uiTEV1jvlGc-unsplash.jpg'
 const Header = (props) => {
    const img = props.backgroundImage ? props.backgroundImage : image
    const style={
-      backgroundImage: `linear-gradient(to right bottom, #31d17983, #40d0776c, #4cd07652, #5fce7188),
+      backgroundImage: `
       url(${img})`
    }
     return (

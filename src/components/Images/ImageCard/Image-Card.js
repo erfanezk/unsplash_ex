@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./imageCard.module.css";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import unsplash from '../../../api/un';
 function handleIntersection(entries) {
   // eslint-disable-next-line array-callback-return
   entries.map((entry) => {
@@ -20,6 +21,7 @@ class ImageCard extends React.Component {
       }),
     };
     this.imageRef = React.createRef();
+    this.download = React.createRef();
   }
 
   componentDidMount() {
@@ -34,8 +36,6 @@ class ImageCard extends React.Component {
     this.imageRef.current.classList.add(classes.move);
   };
   render() {
-    console.log(this.props.img)
-    console.log(this.props.img.links.download_location)
     return (
       <div className={classes.imageCardContainer}>
         <img
@@ -57,7 +57,17 @@ class ImageCard extends React.Component {
           <i className="fas fa-plus"></i>
         </div>
         <div className={classes.download}>
-        <a href={this.props.img.links.download_location+"&client_id=aYWOO0lYHXjRqwsZPNWSZ9ut44fFwuYgpbqy4FxfDo0&force=true"} rel="noreferrer" target="_blank" download> <i className="fa fa-download" aria-hidden="true"></i></a>
+        <div onClick={ async ()=>{
+          const res = await unsplash.photos.trackDownload({ downloadLocation: this.props.img.links.download, });
+          const a = document.createElement('a');
+          a.setAttribute('download','img');
+          a.setAttribute('href',res.response.url);
+          a.style.display='none'
+          document.body.appendChild(a);
+          a.click();
+    
+          document.body.removeChild(a);
+        }}> <i className="fa fa-download" aria-hidden="true"></i></div>
 
         </div>
         <div className={classes.info}>
