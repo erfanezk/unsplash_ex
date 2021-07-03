@@ -25,3 +25,22 @@ body.modalOpen {
   overflow: hidden;
 }
 
+.title{
+  background: inherit;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.041);
+  backdrop-filter: blur(2px);
+  color:white;
+  width:400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+
+}
+@media only screen and (max-width: 600px) {
+ .title{
+   width:300px;
+ }
+}

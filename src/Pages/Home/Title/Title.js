@@ -14,8 +14,8 @@ const Title = () => {
     }, [])
  
     return (
-        <div ref={divRef}>
-            <h1 className="text-primary capitalize bg-white p-2  font-bold   transform skew-x-12 lg:text-2xl">Find your <span className="transform scale-50 ">perfect</span> image</h1>
+        <div className="title" ref={divRef}>
+            <h1 className=" capitalize p-2  font-bold   transform skew-x-12 lg:text-2xl">Find your <span className="transform scale-50 ">perfect</span> image</h1>
         </div>
     )
 }
