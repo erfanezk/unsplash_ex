@@ -1,15 +1,15 @@
 import Unsplash from "../../api/Unsplash";
 import * as actionsType from "./actionsType";
-export const Unsplashapi = () => async (dispatch) => {
+export const Unsplashapi = (term) => async (dispatch) => {
   const response = await Unsplash.get(
-    `/search/photos?query=book&per_page=${30}`
+    `/search/photos?query=${term}&per_page=${20}`
   );
   dispatch({ type: "UNSPLASH_API", payload: response.data.results });
 };
 
 export const changeImages = (term) => async (dispatch) => {
   const response = await Unsplash.get(
-    `/search/photos?query=${term}&per_page=${30}`
+    `/search/photos?query=${term}&per_page=${20}`
   );
   dispatch({ type: "UNSPLASH_API", payload: response.data.results });
 };
@@ -36,4 +36,10 @@ export const getUserPhotos = (username) => async (dispatch) => {
 export const getUserLiked=username=>async dispatch=>{
     const response = await Unsplash.get(`/users/${username}/likes`)
     dispatch({type:"LIKED_API",payload: response.data })
+}
+export const classification =term=>{
+  return{
+    type:'CLASSIFICATION',
+    payload:term
+  }
 }

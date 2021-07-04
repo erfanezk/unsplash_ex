@@ -11,10 +11,14 @@ const Home = (props) => {
     const [SideDrawerOpen, setSideDrawerOpen] = useState(false);
 
 
-   useEffect(()=>{
-    props.Unsplashapi()
-   // eslint-disable-next-line react-hooks/exhaustive-deps
-   },[])
+//    useEffect(()=>{
+//     props.Unsplashapi(props.classification)
+//    // eslint-disable-next-line react-hooks/exhaustive-deps
+//    },[])
+
+   useEffect(() => {
+    props.Unsplashapi(props.classification)
+   },[props.classification]);
 
 
     const drawerToggleClickHandler = () => {
@@ -52,7 +56,8 @@ const Home = (props) => {
 const mapStateToProps = (state) => {
    
   return{
-    UnsplashReducer : state.UnsplashReducer.Unsplash
+    UnsplashReducer : state.UnsplashReducer.Unsplash,
+    classification:state.classificationName.term
   }
 }
 export default connect(mapStateToProps,{Unsplashapi})(Home);
