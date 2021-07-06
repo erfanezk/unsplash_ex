@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import DateDiff from "date-diff";
 import { Link } from "react-router-dom";
 function imageOrientation(src) {
-  var orientation,
-    img = new Image();
+  let orientation,
+  img = new Image();
   img.src = src;
 
   if (img.naturalWidth > img.naturalHeight) {
