@@ -1,6 +1,6 @@
 import React from 'react'
 import Title from '../Title/Title'
-import Toolbar from '../../../components/Toolbar/Toolbar'
+import Toolbar from '../HomeToolbar/HomeToolbar'
 import classes from './Header.module.css'
 import { connect } from 'react-redux';
 import image from '../../../assets/alex-glebov-uiTEV1jvlGc-unsplash.jpg'
@@ -15,7 +15,7 @@ const Header = (props) => {
           <div>
              <Title />
           </div>
-          <Toolbar toggler={props.SideDrawerToggler}/>
+            <Toolbar toggler={props.SideDrawerToggler}/>
        </header>
     )
 }

@@ -3,9 +3,10 @@ import SideDrawer from '../../components/SideDrawer/SideDrawer';
 import Backdrap from '../../components/Backdrap/Backdrap';
 import ImageList from '../../components/Images/ImageList'
 import { connect } from 'react-redux'
- import {Unsplashapi} from '../../Redux/Actions'
+import {Unsplashapi} from '../../Redux/Actions'
 import Header from './Header/Header'
 import Collections from '../../components/Collections/Collections';
+
 const Home = (props) => {
 
     const [SideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -18,6 +19,7 @@ const Home = (props) => {
 
    useEffect(() => {
     props.Unsplashapi(props.classification)
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    },[props.classification]);
 
 
@@ -42,8 +44,9 @@ const Home = (props) => {
         <div >
             <Header SideDrawerToggler={drawerToggleClickHandler}/>
             <SideDrawer closeSideDraw={()=>setSideDrawerOpen(false)} show={SideDrawerOpen} />
-            <main className="mx-2 md:mx-10 xl:mx-10 my-4">
+          
             <Collections/>
+            <main className="mx-2 md:mx-10 xl:mx-10 my-1">
             <ImageList images={props.UnsplashReducer} />
             {BackDropDisplay()}
 

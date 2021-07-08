@@ -1,0 +1,23 @@
+.searchContainer{
+    background-color: rgb(241, 241, 241);
+    padding:10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+  
+}
+.searchContainer input{
+    background-color: transparent;
+    outline: none;
+    width: 100%;
+    display: block;
+    margin-right: 10px;
+    color:black;
+}
+.searchContainer i {
+    color:rgb(78, 78, 78);
+    margin:0 10px;
+    margin-left:5px;
+    font-size: 18px;
+}

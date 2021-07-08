@@ -1,16 +1,46 @@
 .collection{
     color:black;
-
+    position: sticky;
+    background-color: white;
+    top:66px;
+    z-index: 1000;
     font-weight: bold;
+    transition: all 0.3s;
+    margin:0 auto;
     padding:10px;
-    border-radius: 10px;
+
 }
 .collection li{
-    border-bottom: 2px solid black;
     padding:5px;
-    border-radius: 6px;
+    border-radius: 2px;
+    position: relative;
+    color:black;
 }
-.collection nav ul  li:hover{
-    background: black;
-    color:white;
+.collection ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
+
+.topNav{
+    height: 1px;
+    visibility: hidden;
+    width: 100%;
+    background: white;
+}
+.stickyState{
+    margin:0px auto;
+
+}
+
+
+.collection li:hover::after{
+    content: '';
+    position: absolute;
+    padding:3px;
+    border-radius: 50%;
+    background-color: black;
+    left:50%;
+    top:100%;
+    transform: translate(-50%,-50%);
+  }

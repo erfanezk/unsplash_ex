@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./imageCard.module.css";
 import {Link} from 'react-router-dom';
-import unsplash from '../../../api/un';
 function handleIntersection(entries) {
   // eslint-disable-next-line array-callback-return
   entries.map((entry) => {
@@ -37,19 +36,14 @@ class ImageCard extends React.Component {
   };
   render() {
     return (
-      <div className={classes.imageCardContainer}>
+      <div  className={classes.imageCardContainer}>
         <img
-          onClick={this.props.click}
-          className="lazyload"
+          className="lazyload mb-0 block"
           ref={this.imageRef}
           alt={this.props.img.description}
           src={this.props.img.urls.regular}
         />
-        {/* <div className={classes.dec}>
-          <div className="mt-5 text-xs">created by <span className="text-lg font-bold">{this.props.img.user.name}</span> </div>
-          <div className=" text-xs">located in <span className="text-lg font-bold">{this.props.img.user.location}</span>  </div>
-        </div> */}
-        <div      data-id={this.props.index} className={classes.overlay}>
+        <div onClick={()=>{this.props.setSelectedImage(this.props.img);this.props.open()}} className={classes.overlay}>
 
         </div>
         <div className={classes.icons}>
@@ -57,17 +51,7 @@ class ImageCard extends React.Component {
           <i className="fas fa-plus"></i>
         </div>
         <div className={classes.download}>
-        <div onClick={ async ()=>{
-          const res = await unsplash.photos.trackDownload({ downloadLocation: this.props.img.links.download, });
-          const a = document.createElement('a');
-          a.setAttribute('download','img');
-          a.setAttribute('href',res.response.url);
-          a.style.display='none'
-          document.body.appendChild(a);
-          a.click();
-    
-          document.body.removeChild(a);
-        }}> <i className="fa fa-download" aria-hidden="true"></i></div>
+        <div> <i className="fa fa-download" aria-hidden="true"></i></div>
 
         </div>
         <div className={classes.info}>

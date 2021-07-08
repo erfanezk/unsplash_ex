@@ -27,16 +27,15 @@ body.modalOpen {
 
 .title{
   background: inherit;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.432); 
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.041);
-  backdrop-filter: blur(2px);
+  background-color: rgba(255, 255, 255, 0.151);
   color:white;
-  width:400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
+  width: 70%;
+  padding:20px;
+  position: absolute;
+  top:50%;
+  left:50%;
 
 }
 @media only screen and (max-width: 600px) {
@@ -45,6 +44,15 @@ body.modalOpen {
  }
 }
 .activeee{
-  background-color:black;
-  color:white !important;
+  position: relative;
+}
+.activeee::after{
+  content: '';
+  position: absolute;
+  padding:3px;
+  border-radius: 50%;
+  background-color: black;
+  left:50%;
+  top:100%;
+  transform: translate(-50%,-50%);
 }
