@@ -11,11 +11,6 @@ const Home = (props) => {
     const [SideDrawerOpen, setSideDrawerOpen] = useState(false);
 
 
-//    useEffect(()=>{
-//     props.Unsplashapi(props.classification)
-//    // eslint-disable-next-line react-hooks/exhaustive-deps
-//    },[])
-
    useEffect(() => {
     props.Unsplashapi(props.classification)
    },[props.classification]);
