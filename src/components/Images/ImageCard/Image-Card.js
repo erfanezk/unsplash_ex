@@ -43,11 +43,7 @@ class ImageCard extends React.Component {
           alt={this.props.img.description}
           src={this.props.img.urls.regular}
         />
-<<<<<<< HEAD
-        <div data-id={this.props.index} className={classes.overlay}>
-=======
         <div onClick={()=>{this.props.setSelectedImage(this.props.img);this.props.open()}} className={classes.overlay}>
->>>>>>> 41fb4a50f048b4f6e2512d82995fc7f260186d7f
 
         </div>
         <div className={classes.icons}>

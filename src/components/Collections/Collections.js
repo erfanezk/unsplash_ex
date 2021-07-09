@@ -40,7 +40,6 @@ const Collections = (props) => {
   }, []);
   console.log(stickyState)
   if (stickyState) {
-      console.log('playing animation')
     animateMainNav.current.play();
   } else if(mainNav.current){
     mainNav.current.style.width="100%";

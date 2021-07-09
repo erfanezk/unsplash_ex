@@ -55,7 +55,7 @@ const Toolbar = (props) => {
         <div ref={mobileNav} className={classes.mobile}>
           <div className={classes.Toolbar_Logo}>
             <Link to="/">
-              <span className="text-base ">Erfanezk</span>
+              <span className="text-base  ">Erfanezk</span>
             </Link>
           </div>
           <div className={classes.togglerContainer}>
