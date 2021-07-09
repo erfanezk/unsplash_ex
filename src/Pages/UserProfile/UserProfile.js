@@ -30,6 +30,7 @@ const UserProfile = (props) => {
     console.log('getting new photos')
     props.getUserPhotos(userInfo.username);
     props.getUserLiked(userInfo.username);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[userInfo.username]);
   const [showLiked, setShowLiked] = useState(false);
   const [activeLink,setActiveLink] = useState('photos');
@@ -79,9 +80,9 @@ const UserProfile = (props) => {
       </div>
       <main className="my-5">
         {showLiked ? (
-          <ImageList indv={false} liked={true} images={props.liked || []} />
+          <ImageList images={props.liked || []} />
         ) : (
-          <ImageList indv={true} images={props.images || []} />
+          <ImageList images={props.images || []} />
         )}
       </main>
     </div>

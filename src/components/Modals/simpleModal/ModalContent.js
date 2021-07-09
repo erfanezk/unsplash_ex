@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./Modal.module.css";
-import { connect } from "react-redux";
 import DateDiff from "date-diff";
 import { Link } from "react-router-dom";
 function imageOrientation(src) {
@@ -19,6 +18,7 @@ function imageOrientation(src) {
   return orientation;
 }
 const Modal = (props) => {
+  console.log(props.item)
   let stateOfPublished = "moment ago";
   let stateOfUpdate = "moment ago";
   const publishedDiff = new DateDiff(
@@ -84,10 +84,7 @@ const Modal = (props) => {
             </Link>
             <div className="text-lg">
               <i
-                onClick={() => {
-                  document.body.classList.remove("modalOpen");
-                  props.close();
-                }}
+                onClick={props.close}
                 className="far text-xl cursor-pointer fa-times-circle"
               ></i>
             </div>
@@ -123,13 +120,5 @@ const Modal = (props) => {
     </div>
   );
 };
-const mapStateToProps = (state, props) => {
-  let item;
-  if (props.indv) item = state.UnsplashReducer.individualPhotos[props.id];
-  else if (props.liked) item = state.UnsplashReducer.liked[props.id];
-  else item = state.UnsplashReducer.Unsplash[props.id];
-  return {
-    item:item
-  };
-};
-export default connect(mapStateToProps, null)(Modal);
+
+export default Modal;
