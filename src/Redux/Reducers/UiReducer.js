@@ -3,10 +3,11 @@ import image from "../../assets/alex-glebov-uiTEV1jvlGc-unsplash.jpg";
 import mount from "../../assets/jan-valecka-SRJkK4rtZvs-unsplash.jpg";
 import d from "../../assets/sayan-nath-NYIQPdMWN84-unsplash.jpg";
 import v from "../../assets/karsten-winegeart-QtDaxPzhfAk-unsplash.jpg"
+import alex from "../../assets/alex-tXYg4Zx7kSU-unsplash.jpg"
 import _  from 'lodash';
 const setedImage = localStorage.getItem("HomeTheme");
 const initialState = {
-  images: [mount,d,v],
+  images: [mount,d,v,alex],
   backgrundImage: setedImage || image,
 };
 const UiReducer = (state = initialState, action) => {

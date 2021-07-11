@@ -41,7 +41,7 @@ const Home = (props) => {
             <SideDrawer closeSideDraw={()=>setSideDrawerOpen(false)} show={SideDrawerOpen} />
           
             <Collections/>
-            <main className="mx-2 md:mx-10 xl:mx-10 my-1">
+            <main className="mx-2 md:mx-10 xl:mx-10">
             <ImageList images={props.UnsplashReducer} />
             {BackDropDisplay()}
 
