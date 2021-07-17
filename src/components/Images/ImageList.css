@@ -1,7 +1,7 @@
 .Images-List {
   padding-top: 40px;
   column-count: 4 ;
-  column-width: 300px;
+  column-width: 250px;
   column-gap: 20px;
 }
 .Images-List img {

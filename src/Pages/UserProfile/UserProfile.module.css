@@ -10,6 +10,9 @@
 }
 .hr{
     border-bottom: 1px solid rgb(216, 216, 216);
+    background: white;
+   
+
 }
 .hr nav ul li i{
     color:rgb(179, 179, 179);
@@ -17,4 +20,13 @@
 }
 .hr nav ul li:hover i{
     color:black;
+}
+.nav{
+    display: flex;
+    justify-content:flex-start;
+}
+.stickyState{
+    position: sticky;
+    top:72px;
+    z-index: 50;
 }
