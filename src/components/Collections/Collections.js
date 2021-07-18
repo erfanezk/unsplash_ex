@@ -12,7 +12,9 @@ const Collections = (props) => {
   useScrollPosition(({ prevPos, currPos }) => {
     if (props.homeToolbar) {
       const isTouching = overlap(props.homeToolbar, mainNav.current);
-      setStickyState(isTouching);
+      if(stickyState !== isTouching){
+        setStickyState(isTouching);
+      }
     }
   });
   // useEffect(() => {
@@ -33,17 +35,18 @@ const Collections = (props) => {
 
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, []);
-  let navClass= classes.collection;
-  if(stickyState){
-    navClass = classes.stickyState
+  let navClass = [classes.collection,classes.stickyState];
+  if (!stickyState) {
+    navClass.pop()
   }
 
   return (
-    <nav ref={mainNav} className={navClass}>
-  
+    <>
+      <div className={classes.topNav}></div>
+      <nav ref={mainNav} className={navClass.join(" ")}>
         <ul>
           <li
-            className={`cursor-pointer  text-sm lg:text-base ${
+            className={`cursor-pointer  text-sm ${
               props.classificationName === "book" ? "activeee" : ""
             }`}
             onClick={props.classification.bind(null, "book")}
@@ -51,7 +54,7 @@ const Collections = (props) => {
             Book
           </li>
           <li
-            className={`cursor-pointer  text-sm lg:text-base ${
+            className={`cursor-pointer  text-sm  ${
               props.classificationName === "food" ? "activeee" : ""
             }`}
             onClick={props.classification.bind(null, "food")}
@@ -59,7 +62,7 @@ const Collections = (props) => {
             Food
           </li>
           <li
-            className={`cursor-pointer  text-sm lg:tex-base ${
+            className={`cursor-pointer  text-sm e ${
               props.classificationName === "Animals" ? "activeee" : ""
             }`}
             onClick={props.classification.bind(null, "Animals")}
@@ -67,7 +70,7 @@ const Collections = (props) => {
             Animals
           </li>
           <li
-            className={`cursor-pointer text-sm lg:text-base ${
+            className={`cursor-pointer text-sm lg:text-sm ${
               props.classificationName === "programming" ? "activeee" : ""
             }`}
             onClick={props.classification.bind(null, "programming")}
@@ -75,8 +78,8 @@ const Collections = (props) => {
             Programming
           </li>
         </ul>
-
-    </nav>
+      </nav>
+    </>
   );
 };
 const mapStateToProps = (state) => {

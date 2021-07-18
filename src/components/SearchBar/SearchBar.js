@@ -1,11 +1,17 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import classes from "./SearchBar.module.css";
 import history from "../../history";
 import Suggest from "./Suggest/Suggest";
 const submit = (e, value) => {
   e.preventDefault();
-  localStorage.setItem("searchHisoty", value);
-  history.push("/search/" + value);
+  if (localStorage.getItem("searchHistory") === null) {
+    localStorage.setItem("searchHistory", JSON.stringify([value]));
+  } else {
+    let searchedValues = JSON.parse(localStorage.getItem("searchHistory"));
+    searchedValues = [...searchedValues, value];
+    localStorage.setItem("searchHistory", JSON.stringify(searchedValues));
+  }
+  history.push("/search/"+value);
 };
 
 const icon = (
@@ -23,6 +29,16 @@ const icon = (
 const SearchBar = () => {
   const selectRef = useRef();
   const searchRef = useRef();
+  const [items, setItems] = useState([]);
+  const deleteItemFromLocalStorage = (deleteItem)=>{
+    let searchedValues = JSON.parse(localStorage.getItem("searchHistory"));
+    searchedValues = searchedValues.filter(item=>item===deleteItem);
+    localStorage.setItem("searchHistory", JSON.stringify(searchedValues));
+  }
+  useEffect(() => {
+    let searchedValues = JSON.parse(localStorage.getItem("searchHistory"));
+    setItems(searchedValues);
+  }, [localStorage]);
 
   return (
     <div>
@@ -30,76 +46,29 @@ const SearchBar = () => {
         onSubmit={(e) => submit(e, searchRef.current.value)}
         className={classes.searchContainer}
       >
-        <i className="fas fa-search"></i>{" "}
+        <i className="fas fa-search"></i>
         <input
           ref={searchRef}
           type="text"
           placeholder="Search free high-resolution photos"
-          onFocus={()=>{
-            selectRef.current.classList.remove(classes.none)
-            selectRef.current.classList.add(classes.suggestions)
-          }}
-          onBlur={()=>{
-            selectRef.current.classList.add(classes.none);
-            selectRef.current.classList.remove(classes.suggestions)
+          onFocus={() => {
+            selectRef.current.classList.remove(classes.none);
+            selectRef.current.classList.add(classes.suggestions);
           }}
         />
         <div ref={selectRef} className={classes.none}>
+        <i onClick={()=>{
+          selectRef.current.classList.add(classes.none);
+          selectRef.current.classList.remove(classes.suggestions);
+        }} className="fas fa-times"></i>
           <div>
-            <h3 className={classes.header}>Trending Searches</h3>
+            <h3 className={classes.header}>Recently</h3>
             <ul className={classes.items}>
-              <li>
-                <Suggest icon={icon} title="ganesh" />
-              </li>
-              <li>
-                <Suggest icon={icon} title="israel" />
-              </li>
-              <li>
-                <Suggest icon={icon} title="road" />
-              </li>
-              <li>
-                <Suggest icon={icon} title="holy sprit" />
-              </li>
-              <li>
-                <Suggest icon={icon} title="tea" />
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className={classes.header}>Trending Topices</h3>
-            <ul className={classes.items}>
-              <li>
-                <Suggest title="fashion" />
-              </li>
-              <li>
-                <Suggest title="history" />
-              </li>
-              <li>
-                <Suggest title="animals" />
-              </li>
-              <li>
-                <Suggest title="exprimental" />
-              </li>
-              <li>
-                <Suggest title="tea" />
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className={classes.header}>Trending Collections</h3>
-            <ul className={classes.items}>
-              <li>
-                <Suggest title="Lego" />
-              </li>
-              <li>
-                <Suggest title="NH73" />
-              </li>
-              <li>
-                <Suggest title="Surf" />
-              </li>
-              <li>
-                <Suggest title="Retro Cameras" />
-              </li>
+              {items.map((item) => (
+                <li key={item}>
+                  <Suggest close={true} title={item} />
+                </li>
+              ))}
             </ul>
           </div>
         </div>
