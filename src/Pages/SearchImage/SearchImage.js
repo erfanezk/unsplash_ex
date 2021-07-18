@@ -33,7 +33,6 @@ const SearchImage = (props) => {
     }
   };
   let show = <ImageList images={images} />;
-  console.log(images.length)
   if(images.length===0)
     show=<Spinner/>
   return (

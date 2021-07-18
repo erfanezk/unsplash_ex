@@ -18,7 +18,6 @@ function imageOrientation(src) {
   return orientation;
 }
 const Modal = (props) => {
-  console.log(props.item)
   let stateOfPublished = "moment ago";
   let stateOfUpdate = "moment ago";
   const publishedDiff = new DateDiff(

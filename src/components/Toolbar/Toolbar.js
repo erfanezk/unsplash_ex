@@ -8,8 +8,6 @@ const Toolbar = (props) => {
 
   const [Modal,open,close] = useModal('root');
 
-
-
   return (
     <header  className="Toolbar">
       <Modal>

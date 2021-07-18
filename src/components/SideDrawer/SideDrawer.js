@@ -51,7 +51,6 @@ const SideDrawer = (props) => {
         <p>profile name</p>
       </div>
       <ul ref={items} onClick={(e)=>{
-        console.log(e.target.nodeName)
         if(e.target.nodeName==="LI"){
           props.closeSideDraw();
         }

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import classes from "./SearchBar.module.css";
 import history from "../../history";
 import Suggest from "./Suggest/Suggest";
@@ -12,7 +12,7 @@ const icon = (
   <svg
     width="18"
     height="18"
-    class="_1We2V"
+    className="_1We2V"
     viewBox="0 0 32 32"
     version="1.1"
     aria-hidden="false"
