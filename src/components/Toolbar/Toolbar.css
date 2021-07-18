@@ -44,12 +44,11 @@
     margin: 0 0.2rem;
   }
   .Toolbar_Navigation_Item a {
-    border-radius:3px;
     color: inherit;
     transition: all 0.3s;
     text-transform: capitalize;
     text-decoration: none;
-    padding: 9px;
+    padding: 3px 10px;
     color: black;
 
   }
