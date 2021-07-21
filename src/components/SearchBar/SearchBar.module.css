@@ -24,9 +24,8 @@
   font-size: 18px;
 }
 .items{
-  flex-wrap: wrap;
   display: flex;
-  align-items:center;
+  flex-direction: column;
 }
 .items li{
   margin-left:10px;
@@ -54,6 +53,11 @@
 }
 .none{
 display: none;
+position: relative;
+}
+
+.suggestions i {
+  cursor: pointer;
 }
 .header{
   color:black;
@@ -62,5 +66,9 @@ display: none;
 @media only screen and (max-width: 600px) {
   .suggestions {
    display: none;
+   position: relative;
+  }
+  .suggestions i {
+    cursor: pointer;
   }
 }

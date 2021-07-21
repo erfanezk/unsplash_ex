@@ -27,6 +27,6 @@
 }
 .stickyState{
     position: sticky;
-    top:72px;
+    top:65px;
     z-index: 50;
 }

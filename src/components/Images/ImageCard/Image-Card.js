@@ -36,12 +36,13 @@ class ImageCard extends React.Component {
   };
   render() {
     return (
-      <div  className={classes.imageCardContainer}>
+      <div  itemScope itemType="https://schema.org/ImageObject" className={classes.imageCardContainer}>
         <img
           className="lazyload mb-0 block"
           ref={this.imageRef}
           alt={this.props.img.description}
           src={this.props.img.urls.regular}
+          itemType="image"
         />
         <div onClick={()=>{this.props.setSelectedImage(this.props.img);this.props.open()}} className={classes.overlay}>
 

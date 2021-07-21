@@ -77,9 +77,9 @@ const Modal = (props) => {
               className="flex items-end"
             >
               <div>
-                <img src={props.item.user.profile_image.small} alt="profile" />
+                <img itemProp="contentUrl" src={props.item.user.profile_image.small} alt="profile" />
               </div>
-              <div className="ml-3">{props.item.user.name}</div>
+              <div className="ml-3" itemProps="author">{props.item.user.name}</div>
             </Link>
             <div className="text-lg">
               <i
@@ -104,13 +104,13 @@ const Modal = (props) => {
         </div>
         <div className="lg:px-10 mb-5">
           <div className="p-5">
-            <span className="font-bold">bio: </span> {props.item.user.bio}
+            <span className="font-bold">bio: </span>  <span itemProps="description">{props.item.user.bio}</span>
           </div>
           <div className={classes.dec}>
             <span className="capitalize text-sm mr-2">updated </span>
             {stateOfUpdate}
             <div>
-              <span className="text-sm mr-2">published</span>
+              <span itemProps="dataPublished" className="text-sm mr-2">published</span>
               <span className="text-base">{stateOfPublished}</span>
             </div>
           </div>

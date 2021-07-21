@@ -80,7 +80,7 @@
 }
 .active {
   color: white !important;
-  background-color:   #422c15 !important;
+  background-color:   #000000 !important;
 }
 .toggler {
   display: block;

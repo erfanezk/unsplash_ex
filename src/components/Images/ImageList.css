@@ -3,6 +3,7 @@
   column-count: 4 ;
   column-width: 250px;
   column-gap: 20px;
+  min-height: 50vh;
 }
 .Images-List img {
   transition: transform 0.5s;
